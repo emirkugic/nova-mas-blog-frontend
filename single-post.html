@@ -17,9 +17,59 @@
 
   <style>
     /* Smaller width for blog content */
-    .cell-lg-9.cell-xs-12.cell-lg-container {
-      max-width: 70%;
-      margin: 0 auto;
+    @media (min-width: 992px) {
+      .cell-lg-9.cell-xs-12.cell-lg-container {
+        max-width: 70%;
+        margin: 0 auto;
+      }
+    }
+
+    /* date, view count and name css fix */
+    .cell-lg-9 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .group-sm {
+      display: flex;
+      gap: 20px;
+    }
+
+    .cell-lg-9 {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .group-sm {
+      display: flex;
+      gap: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .cell-lg-9 {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .post-panel-top-between {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .group-sm {
+        flex-direction: row;
+        justify-content: center;
+      }
+
+      a.post-panel {
+        width: 100%;
+        margin-top: 10px;
+      }
     }
   </style>
 </head>
@@ -85,14 +135,22 @@
             <div class="cell-xs-12">
               <div class="post-big">
                 <div class="post-panel-top-between">
-                  <div class="group-sm"><span class="post-panel"><span class="mdi mdi-sm mdi-clock"></span>
-                      <time datetime="204-03-12">3 Juni 2024</time></span>
-                    <span class="post-panel"><span class="fl-justicons-visible6"></span><span>524</span></span>
+                  <div class="group-sm">
+                    <span class="post-panel">
+                      <span class="mdi mdi-sm mdi-clock"></span>
+                      <time datetime="204-03-12">3 Juni 2024</time>
+                    </span>
+                    <span class="post-panel">
+                      <span class="fl-justicons-visible6"></span>
+                      <span>524</span>
+                    </span>
                   </div>
-                  <a class="post-panel" href="#"><span class="mdi mdi-md mdi-account-outline"></span><span><span
-                        class="text-uppercase">Alma
-                        Musliović</span></span></a>
+                  <a class="post-panel" href="#">
+                    <span class="mdi mdi-md mdi-account-outline"></span>
+                    <span class="text-uppercase">Alma Musliović</span>
+                  </a>
                 </div>
+
                 <div class="post-big-item">
                   <h4>Trendovi Ljeta 2024: Vodič za Savršen Ljetni Izgled</h4>
                   <p>Dok se temperature penju, a dani postaju sve duži, pravo je vrijeme da osvježimo svoje garderobe sa
@@ -154,7 +212,7 @@
                 </div>
               </div>
               <div class="post-panel-bottom-between">
-                <h5>Podijelite:</h5>
+                <h5></h5>
                 <div class="group-sm"><a
                     class="button button-facebook button-icon button-icon-left button-post button-rounded"
                     href="#"><span class="icon fa fa-facebook"></span>Like</a><a
@@ -185,7 +243,7 @@
                               slojevitih kombinacija do...</p>
                             <div class="post-panel-between"><span class="post-panel"><span
                                   class="mdi mdi-sm mdi-clock"></span>
-                                <time datetime="2017-01-03">january 3, 2017</time></span><span class="post-panel"><span
+                                <time datetime="2024-01-03">3. Januar 2025</time></span><span class="post-panel"><span
                                   class="fl-justicons-visible6"></span><span>524</span></span>
                             </div>
                           </div>
@@ -210,7 +268,7 @@
                             </p>
                             <div class="post-panel-between"><span class="post-panel"><span
                                   class="mdi mdi-sm mdi-clock"></span>
-                                <time datetime="2017-01-15">january 15, 2017</time></span><span class="post-panel"><span
+                                <time datetime="2024-01-15">15 Januar 2024</time></span><span class="post-panel"><span
                                   class="fl-justicons-visible6"></span><span>524</span></span>
                             </div>
                           </div>
@@ -234,7 +292,7 @@
                               održati toplim i stilizira...</p>
                             <div class="post-panel-between"><span class="post-panel"><span
                                   class="mdi mdi-sm mdi-clock"></span>
-                                <time datetime="2017-01-20">January 20, 2017</time></span><span class="post-panel"><span
+                                <time datetime="2024-01-20">20. Januar 2024</time></span><span class="post-panel"><span
                                   class="fl-justicons-visible6"></span><span>524</span></span>
                             </div>
                           </div>
