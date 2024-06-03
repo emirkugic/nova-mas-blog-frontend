@@ -7223,6 +7223,10 @@ h2 + .countdown-wrap {
 .shell + .shell {
 	margin-top: 60px;
 }
+.shell h2 {
+    text-align: left;
+}
+
 
 .range + .range {
 	margin-top: 60px;
