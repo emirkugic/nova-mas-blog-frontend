@@ -14,6 +14,20 @@
   <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7CLato:400,700">
   <link rel="stylesheet" href="css/bootstrap.css">
   <link rel="stylesheet" href="css/style.css">
+
+  <style>
+    .header-link {
+      color: inherit;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .header-link .icon {
+      padding-left: 5px;
+      font-size: 1.2em;
+    }
+  </style>
 </head>
 
 <body>
@@ -96,26 +110,6 @@
               </div>
             </div>
           </div>
-          <!-- <div class="swiper-slide slide-overlay-dark slide-position-var-2" data-slide-bg="images/slide-4-1920x850.jpg"
-            data-slide-title="Title text">
-            <div class="swiper-slide-caption">
-              <div class="shell-fluid shell-fluid-var-2">
-                <div class="range range-center range-sm-left">
-                  <div class="cell-md-6 cell-sm-7 cell-xs-11 slide-offset-left-1" data-caption-animate="fadeInUp"
-                    data-caption-delay="100">
-                    <div class="box-content inset-left">
-                      <h1 class="negative-offset text-secondary-dark"><span class="letter-big">W</span><span
-                          class="letter-small">elcome</span></h1>
-                      <h3 class="text-secondary-dark title-decor decor-left decor-secondary-dark">to Our Blog</h3>
-                      <h5>The best food, fitness, health and love blog</h5><a
-                        class="button button-lg button-white-1 button-effect-ujarak" href="single-post.html">Read
-                        More</a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div> -->
         </div>
         <!-- Swiper pagination-->
         <!-- <div class="swiper-pagination"></div> -->
@@ -142,7 +136,12 @@
     </section>
     <section class="section-md bg-gray-5 text-center">
       <div class="shell shell-fluid-var-3">
-        <h2>Popularni Blogovi</h2>
+
+        <h2>
+          <a href="single-post.html" class="header-link">
+            Popularni Blogovi <span class="icon">></span>
+          </a>
+        </h2>
         <div class="range range-30 range-center">
           <div class="cell-lg-3 cell-md-4 cell-sm-6 cell-xs-10 order-md-first wow fadeInUp" data-wow-duration=".88s"
             data-wow-offset="30">
@@ -248,7 +247,11 @@
         </div>
       </div>
       <div class="shell shell-fluid-var-3">
-        <h2>Novi blogovi</h2>
+        <h2>
+          <a href="single-post.html" class="header-link">
+            Novi Blogovi <span class="icon">></span>
+          </a>
+        </h2>
         <div class="range range-30 range-center">
           <div class="cell-lg-3 cell-md-4 cell-sm-6 cell-xs-10 order-md-first wow fadeInUp" data-wow-duration=".88s"
             data-wow-offset="30">
