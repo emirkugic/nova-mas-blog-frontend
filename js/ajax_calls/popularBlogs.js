@@ -5,7 +5,7 @@ $(document).ready(function () {
 			type: "GET",
 			dataType: "json",
 			success: function (data) {
-				displayBlogs(data);
+				displayBlogs(data.blogs);
 			},
 			error: function (error) {
 				console.error("Error fetching popular blogs:", error);

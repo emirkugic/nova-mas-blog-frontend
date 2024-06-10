@@ -5,7 +5,7 @@ $(document).ready(function () {
 			type: "GET",
 			dataType: "json",
 			success: function (data) {
-				displayNewestBlogs(data);
+				displayNewestBlogs(data.blogs);
 			},
 			error: function (error) {
 				console.error("Error fetching newest blogs:", error);
