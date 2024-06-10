@@ -1,11 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="wide wow-animation" lang="en">
 
 <head>
     <!-- Site Title-->
-    <script src="https://cdn.tiny.cloud/1/7cy5wct45mtw7tzx0id7a4fj68xyzdf3mzhno5duhxi5cz61/tinymce/6/tinymce.min.js"
-        referrerpolicy="origin"></script>
-    <title>Blog creator</title>
+    <title>Lipstick Tricks You Probably Don’t Know About</title>
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport"
         content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -16,17 +14,112 @@
     <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7CLato:400,700">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
+    <!-- <link rel="stylesheet" href="/text-editor/style.css"> -->
+
+    <!-- TinyMCE Editor -->
+    <script src="https://cdn.tiny.cloud/1/7cy5wct45mtw7tzx0id7a4fj68xyzdf3mzhno5duhxi5cz61/tinymce/6/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
+    <style>
+    </style>
 </head>
 
 <body>
-    <div class="container">
-        <form id="editorForm">
-            <textarea id="editor"></textarea>
-            <button type="button" id="saveButton">Save as .txt</button>
-        </form>
+    <!-- Page-->
+    <!-- Page preloader-->
+    <div class="page-loader">
+        <div><img src="../images/logo.png" alt="" width="152" height="59" />
+            <div class="page-loader-body">
+                <div class="cssload-square">
+                    <div class="cssload-square-part cssload-square-green"></div>
+                    <div class="cssload-square-part cssload-square-pink"></div>
+                    <div class="cssload-square-blend"></div>
+                </div>
+            </div>
+        </div>
     </div>
+    <!-- Page Header-->
+    <header class="page-header rd-navbar-default rd-navbar-transparent">
+        <!-- RD Navbar-->
+        <div class="rd-navbar-wrap">
+            <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
+                data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed"
+                data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static"
+                data-md-stick-up-offset="80px" data-lg-stick-up-offset="46px" data-stick-up="true"
+                data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
+                <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span>
+                </div>
+                <div class="rd-navbar-inner">
+                    <!-- RD Navbar Panel-->
+                    <div class="rd-navbar-panel">
+                        <!-- RD Navbar Toggle-->
+                        <button class="rd-navbar-toggle"
+                            data-rd-navbar-toggle=".rd-navbar-nav-wrap"><span></span></button>
+                        <!-- RD Navbar Brand-->
+                        <div class="rd-navbar-brand"><a class="brand-name" href="../index.html"><img
+                                    src="../images/logo.png" alt="" width="152" height="59" /></a></div>
+                    </div>
+                    <div class="rd-navbar-aside-right">
+                        <div class="rd-navbar-nav-wrap">
+                            <ul class="rd-navbar-nav">
+                                <li><a href="blog.html">Blogovi</a>
+                                </li>
+                                <li><a href="about-us.html">O meni</a>
+                                </li>
+                                <li><a href="contacts.html">Kontakt</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section-md section-bottom-lg-200 bg-white">
+        <div class="shell shell-fluid-var-4">
+            <div class="cell-lg-9 cell-xs-12 cell-lg-container">
+                <div class="range range-50 range-xs-90 range-center">
+
+                    <!-- Blog content with editor -->
+                    <div class="cell-xs-12">
+                        <div class="post-big">
+                            <form id="editorForm">
+                                <textarea id="editor"></textarea>
+                                <button type="button" id="saveButton">Save as .txt</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+    <!-- Page Footer-->
+    <footer class="page-footer footer-var-2 text-center">
+        <div class="shell">
+            <div class="range range-20 range-sm-0 range-center range-middle">
+                <div class="cell-sm-4 text-sm-left">
+                    <p>Nova Mas Modna Agencija &#169; <span id="copyright-year"></span>. <a href="#">Privacy
+                            Policy</a>
+                    </p>
+                </div>
+                <div class="cell-sm-4 text-center">
+                    <ul class="list-inline footer-social">
+                        <li><a class="icon fa fa-instagram icon-xxs"
+                                href="https://www.instagram.com/novamas_models/"></a></li>
+                        <li><a class="icon fa fa-facebook icon-xxs"
+                                href="https://www.facebook.com/p/Nova-maS-models-100057067287274/"></a></li>
+                    </ul>
+                </div>
+                <div class="cell-sm-4 text-sm-right"><a href="mailto:#">alma@novamas.com</a></div>
+            </div>
+        </div>
+    </footer>
+    <!-- Javascript-->
     <script src="../js/core.min.js"></script>
     <script src="../js/script.js"></script>
-    <script src="script.js"></script>
+    <script src="js/ajax_calls/fetchSingleBlog.js"></script>
+    <script src="js/ajax_calls/shareBlog.js"></script>
+    <script src="/text-editor/script.js"></script>
 
 </body>
+
+</html>
