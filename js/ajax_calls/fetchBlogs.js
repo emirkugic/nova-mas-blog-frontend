@@ -61,18 +61,20 @@ $(document).ready(function () {
 								}">
                     <div class="post post-var-1 post-custom-1">
                         <div class="unit unit-spacing-0 unit-sm-horizontal unit-md-vertical">
-                            <div class="unit__left"><a href="single-post.html"><img src="${
-															/*blog.imageUrls[0] || */ "images/default.png"
-														}" alt="" width="347" height="241" /></a></div>
+                            <div class="unit__left"><a href="single-post.html?id=${
+															blog.id
+														}"><img src="${
+				/*blog.imageUrls[0] || */ "images/default.png"
+			}" alt="" width="347" height="241" /></a></div>
                             <div class="unit__body">
                                 <div class="post-content">
                                     <div class="post-content-wrap">
                                         <div class="post-tags-wrap"><a class="post-tags" href="#">${
 																					blog.category
 																				}</a></div>
-                                        <h5><a href="single-post.html">${
-																					blog.title
-																				}</a></h5>
+                                        <h5><a href="single-post.html?id=${
+																					blog.id
+																				}">${blog.title}</a></h5>
                                         <p>${trimmedContent}</p>
                                         <div class="post-panel-between">
                                             <span class="post-panel"><span class="mdi mdi-sm mdi-clock"></span>
