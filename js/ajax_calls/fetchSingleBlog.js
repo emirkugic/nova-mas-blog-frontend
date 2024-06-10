@@ -28,14 +28,6 @@ $(document).ready(function () {
 		$("#blog-author").text(blog.fullName);
 		$("#blog-title").text(blog.title);
 		$("#blog-content").html(blog.content);
-
-		const imageContainer = $("#blog-images");
-		imageContainer.empty();
-		blog.imageUrls.forEach((url) => {
-			imageContainer.append(
-				`<div class="cell-sm-6"><img src="${url}" alt="Blog image" width="490" height="346" /></div>`
-			);
-		});
 	}
 
 	function fetchSimilarBlogs(category, currentBlogId) {
