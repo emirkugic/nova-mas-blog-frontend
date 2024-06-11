@@ -4,21 +4,21 @@
 <head>
     <!-- Site Title-->
     <title>Nova Mast</title>
+    <meta charset="utf-8">
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport"
         content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <!-- <link rel="icon" href="../Nova mas logo i kartice/Nova Mas Logo/Bijeli mali.png" type="image/x-icon"> -->
     <link rel="icon" href="../Nova mas logo i kartice/Nova Mas Logo/Bijeli mali.png" type="image/x-icon">
     <!-- Stylesheets-->
-    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7CLato:400,700">
     <link rel="stylesheet" href="../css/bootstrap.css">
     <link rel="stylesheet" href="../css/style.css">
-
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Montserrat:400,700%7CLato:400,700">
     <!-- TinyMCE Editor -->
     <script src="https://cdn.tiny.cloud/1/17u60dnblvkke1omf1mip68k7zcu5xz6gbuybfmh63lehqvj/tinymce/6/tinymce.min.js"
         referrerpolicy="origin"></script>
+
+    <link rel="stylesheet" href="./tinymce.css">
 
 </head>
 
@@ -31,22 +31,15 @@
                 <div class="cssload-square">
                     <div class="cssload-square-part cssload-square-green"></div>
                     <div class="cssload-square-part cssload-square-pink"></div>
-                    <div class="cssload-square-blend"></div>
+                    <div the="cssload-square-blend"></div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Page Header-->
     <header class="page-header rd-navbar-default rd-navbar-transparent">
-        <!-- RD Navbar-->
         <div class="rd-navbar-wrap">
-            <nav class="rd-navbar" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed"
-                data-md-layout="rd-navbar-fullwidth" data-md-device-layout="rd-navbar-fixed"
-                data-lg-layout="rd-navbar-static" data-lg-device-layout="rd-navbar-static"
-                data-md-stick-up-offset="80px" data-lg-stick-up-offset="46px" data-stick-up="true"
-                data-sm-stick-up="true" data-md-stick-up="true" data-lg-stick-up="true">
-                <div class="rd-navbar-collapse-toggle" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span>
-                </div>
+            <nav class="rd-navbar">
                 <div class="rd-navbar-inner">
                     <!-- RD Navbar Panel-->
                     <div class="rd-navbar-panel">
@@ -60,43 +53,48 @@
                     <div class="rd-navbar-aside-right">
                         <div class="rd-navbar-nav-wrap">
                             <ul class="rd-navbar-nav">
-                                <li><a href="../blog.html">Blogovi</a>
-                                </li>
-                                <li><a href="../about-us.html">O meni</a>
-                                </li>
-                                <li><a href="../contacts.html">Kontakt</a>
-                                </li>
+                                <li><a href="../blog.html">Blogovi</a></li>
+                                <li><a href="../about-us.html">O meni</a></li>
+                                <li><a href="../contacts.html">Kontakt</a></li>
                             </ul>
                         </div>
                     </div>
+                </div>
             </nav>
         </div>
     </header>
-
+    <!-- Main Section-->
     <section class="section-md section-bottom-lg-200 bg-white">
         <div class="shell shell-fluid-var-4">
             <div class="cell-lg-9 cell-xs-12 cell-lg-container">
                 <div class="range range-50 range-xs-90 range-center">
-
                     <!-- Blog content with editor -->
                     <div class="cell-xs-12">
                         <div class="post-big">
                             <form id="editorForm">
                                 <textarea id="editor"></textarea>
                                 <button type="button" id="saveButton">Save as .txt</button>
+                                <button type="button" id="previewButton" onclick="previewBlog()">Preview Blog</button>
                             </form>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
     </section>
+    <!-- Preview Modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="previewContent"></div>
+        </div>
+    </div>
     <!-- Page Footer-->
     <footer class="page-footer footer-var-2 text-center">
         <div class="shell">
             <div class="range range-20 range-sm-0 range-center range-middle">
                 <div class="cell-sm-4 text-sm-left">
-                    <p>Nova Mas Modna Agencija &#169; <span id="copyright-year"></span>. <a href="#">Privacy
-                            Policy</a>
+                    <p>Nova Mas Modna Agencija &#169; <span id="copyright-year"></span>. <a href="#">Privacy Policy</a>
                     </p>
                 </div>
                 <div class="cell-sm-4 text-center">
@@ -114,9 +112,62 @@
     <!-- Javascript-->
     <script src="../js/core.min.js"></script>
     <script src="../js/script.js"></script>
-    <script src="/text-editor/script.js"></script>
+    <script>
+        tinymce.init({
+            height: 1000,
+            selector: '#editor',
+            plugins: 'image code', // Include the image plugin
+            toolbar: 'undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | outdent indent | link image', // Add the image button
+            /* Configure image options */
+            // images_upload_url: 'postAcceptor.php', // URL to where the images are to be uploaded
+            automatic_uploads: true,
+            file_picker_types: 'image',
+            images_reuse_filename: true,
+            file_picker_callback: function (cb, value, meta) {
+                var input = document.createElement('input');
+                input.setAttribute('type', 'file');
+                input.setAttribute('accept', 'image/*');
 
+                input.onchange = function () {
+                    var file = this.files[0];
 
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        var id = 'blobid' + (new Date()).getTime();
+                        var blobCache = tinymce.activeEditor.editorUpload.blobCache;
+                        var base64 = reader.result.split(',')[1];
+                        var blobInfo = blobCache.create(id, file, base64);
+                        blobCache.add(blobInfo);
+
+                        cb(blobInfo.blobUri(), {
+                            title: file.name
+                        });
+                    };
+                    reader.readAsDataURL(file);
+                };
+
+                input.click();
+            }
+        });
+
+        function previewBlog() {
+            var content = tinymce.get("editor").getContent();
+            document.getElementById("previewContent").innerHTML = content;
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Close the modal if user clicks outside of it
+        window.onclick = function (event) {
+            var modal = document.getElementById("myModal");
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 
 </html>
